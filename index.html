@@ -1,59 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sarthak Bora | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <img src="profile.jpg" alt="Sarthak Bora" class="profile-pic" />
-    <h1>Sarthak Bora</h1>
-    <p>🚀 Aspiring Python Developer | Backend Enthusiast | Data Nerd</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <img src="profile.jpg" alt="Sarthak Bora" class="profile-pic">
+      <h1>Sarthak Bora</h1>
+      <p>🚀 Aspiring Python Developer | Backend Enthusiast | Data Nerd</p>
+      <a href="resume.pdf" download class="btn">📄 Download Resume</a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section id="about">
+  <!-- About Section -->
+  <section id="about" class="fade-in">
     <h2>👨‍💻 About Me</h2>
     <p>
-      Hi! I'm Sarthak, a passionate Python developer from India who loves building backends,
-      solving problems, and exploring data through Pandas and MySQL.
+      Hi! I'm Sarthak, a passionate Python developer from India. I love creating backend systems, 
+      exploring data with Pandas & SQL, and turning ideas into real solutions. I thrive on problem-solving 
+      and continuous learning.
     </p>
-    <a href="resume.pdf" download class="btn">📄 Download Resume</a>
   </section>
 
-  <section id="skills">
+  <!-- Skills Section -->
+  <section id="skills" class="fade-in">
     <h2>🛠️ Skills & Tools</h2>
-    <ul>
-      <li>Python</li>
-      <li>C</li>
-      <li>Java</li>
-      <li>MySQL</li>
-      <li>Pandas & NumPy</li>
-      <li>Git & GitHub</li>
-      <li>VS Code</li>
-    </ul>
+    <div class="skills-container">
+      <span class="skill">Python</span>
+      <span class="skill">C</span>
+      <span class="skill">Java</span>
+      <span class="skill">MySQL</span>
+      <span class="skill">Pandas & NumPy</span>
+      <span class="skill">Git & GitHub</span>
+      <span class="skill">VS Code</span>
+      <span class="skill">Power BI</span>
+      <span class="skill">Tableau</span>
+    </div>
   </section>
 
-  <section id="projects">
+  <!-- Projects Section -->
+  <section id="projects" class="fade-in">
     <h2>📂 Projects</h2>
-    <div class="project">
-      <h3>Student Management System</h3>
-      <p>Built using Python and MySQL to manage student records from the terminal.</p>
-    </div>
-    <div class="project">
-      <h3>Data Analysis with Pandas</h3>
-      <p>Cleaned and analyzed large CSV files for trends and patterns.</p>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Student Management System</h3>
+        <p>Python + MySQL terminal-based system to manage student records with CRUD operations.</p>
+      </div>
+      <div class="project-card">
+        <h3>Data Analysis with Pandas</h3>
+        <p>Analyzed large CSV datasets for insights and trends using Pandas, NumPy & Matplotlib.</p>
+      </div>
+      <div class="project-card">
+        <h3>Expense Tracker</h3>
+        <p>Python application to track daily expenses, categorize spending, and visualize trends.</p>
+      </div>
     </div>
   </section>
 
-  <section id="contact">
+  <!-- Contact Section -->
+  <section id="contact" class="fade-in">
     <h2>📫 Contact Me</h2>
     <p>Email: <a href="mailto:sarthakbora@example.com">sarthakbora@example.com</a></p>
     <p>
