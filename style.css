@@ -138,7 +138,7 @@ h2::after {
   border-top: 4px solid #00d4ff;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-project-card p{
+.project-card p{
   color: white;
 }
 .project-card:hover {
@@ -179,4 +179,5 @@ footer {
   .projects { grid-template-columns: 1fr; }
   .skills-container { justify-content: center; }
 }
+
 
