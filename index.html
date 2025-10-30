@@ -1,100 +1,620 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sarthak Bora | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Data Analyst</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #e5e7eb;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid #475569;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #f1f5f9;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #f1f5f9;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        .slider {
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 50px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            border: 1px solid #475569;
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #f1f5f9;
+        }
+
+        .project-card p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .tag {
+            background: rgba(59, 130, 246, 0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .project-link:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #334155 0%, #475569 100%);
+            border: 1px solid #64748b;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: #e5e7eb;
+        }
+
+        .slider-nav:hover {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: #fff;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .slider-dots {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #475569;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #64748b;
+        }
+
+        .dot.active {
+            background: #3b82f6;
+            width: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e5e7eb;
+            padding: 60px 0 30px;
+            border-top: 1px solid #475569;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #f1f5f9;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #3b82f6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #334155 0%, #475569 100%);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: all 0.3s ease;
+            border: 1px solid #64748b;
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #475569;
+            color: #94a3b8;
+        }
+
+        /* Project Detail Page */
+        .project-detail {
+            display: none;
+            min-height: 100vh;
+            padding: 40px 0;
+        }
+
+        .project-detail.active {
+            display: block;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+            transform: translateY(-2px);
+        }
+
+        .detail-content {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            border: 1px solid #475569;
+        }
+
+        .detail-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f1f5f9;
+        }
+
+        .detail-content h3 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #cbd5e1;
+        }
+
+        .detail-content p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .detail-content ul {
+            color: #cbd5e1;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .detail-content li {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .slider-container {
+                padding: 0 50px;
+            }
+
+            .slide {
+                padding: 30px;
+            }
+
+            .detail-content {
+                padding: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Main Portfolio Page -->
+    <div id="home-page">
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <h1>John Doe</h1>
+                <p class="subtitle">Data Analyst | Turning Data into Insights</p>
+                <button class="cta-button" onclick="downloadResume()">Download Resume</button>
+            </div>
+        </header>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <img src="me.jpg" alt="Sarthak Bora" class="profile-pic">
-      <h1>Sarthak Bora</h1>
-      <p>📊 Aspiring Data Analyst | Python & SQL | Data Visualization Enthusiast</p>
-      <a href="ResumeSarthakBora.pdf" class="btn" download>📄 Download Resume</a>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <!-- Projects Section -->
+        <section class="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="slider-container">
+                    <button class="slider-nav prev" onclick="changeSlide(-1)">&#10094;</button>
+                    <div class="slider">
+                        <div class="slides" id="slides">
+                            <div class="slide">
+                                <div class="project-card">
+                                    <h3>Sales Dashboard Analytics</h3>
+                                    <p>Developed an interactive dashboard to track sales performance across multiple regions. Implemented real-time data visualization that increased decision-making speed by 40% and identified $2M in revenue opportunities.</p>
+                                    <div class="tech-tags">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">Tableau</span>
+                                        <span class="tag">SQL</span>
+                                        <span class="tag">Power BI</span>
+                                    </div>
+                                    <a href="#" class="project-link" onclick="showProject(0); return false;">View Project Details</a>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <div class="project-card">
+                                    <h3>Customer Churn Prediction</h3>
+                                    <p>Built a machine learning model to predict customer churn with 87% accuracy. Analyzed behavioral patterns and implemented retention strategies that reduced churn rate by 23% over six months.</p>
+                                    <div class="tech-tags">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">Scikit-learn</span>
+                                        <span class="tag">Pandas</span>
+                                        <span class="tag">XGBoost</span>
+                                    </div>
+                                    <a href="#" class="project-link" onclick="showProject(1); return false;">View Project Details</a>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <div class="project-card">
+                                    <h3>Market Basket Analysis</h3>
+                                    <p>Conducted comprehensive market basket analysis for e-commerce platform, uncovering product association rules. Insights led to optimized product placement and bundling strategies, increasing average order value by 18%.</p>
+                                    <div class="tech-tags">
+                                        <span class="tag">R</span>
+                                        <span class="tag">SQL</span>
+                                        <span class="tag">Apriori Algorithm</span>
+                                        <span class="tag">Excel</span>
+                                    </div>
+                                    <a href="#" class="project-link" onclick="showProject(2); return false;">View Project Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-nav next" onclick="changeSlide(1)">&#10095;</button>
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="currentSlide(0)"></span>
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <p>Email: john.doe@email.com</p>
+                        <p>Phone: +1 (555) 123-4567</p>
+                        <p>Location: San Francisco, CA</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <a href="#about">About Me</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#skills">Skills</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Connect</h4>
+                        <div class="social-links">
+                            <a href="#" title="LinkedIn">in</a>
+                            <a href="#" title="GitHub">gh</a>
+                            <a href="#" title="Twitter">tw</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 John Doe. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
     </div>
-  </header>
 
-  <!-- About Section -->
-  <section id="about" class="fade-in">
-    <h2>👋 About Me</h2>
-    <p>
-      Hi! I'm Sarthak, an aspiring Data Analyst passionate about transforming raw data into actionable insights.  
-      I specialize in Python, SQL, Excel, and data visualization tools like Tableau and Power BI.  
-      I enjoy cleaning, analyzing, and visualizing data to help businesses make data-driven decisions.
-    </p>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="fade-in">
-    <h2>🛠️ Skills & Tools</h2>
-    <div class="skills-container">
-      <span class="skill">Python</span>
-      <span class="skill">SQL</span>
-      <span class="skill">Excel</span>
-      <span class="skill">Pandas & NumPy</span>
-      <span class="skill">Power BI</span>
-      <span class="skill">Tableau</span>
-      <span class="skill">Matplotlib & Seaborn</span>
-      <span class="skill">Data Cleaning</span>
-      <span class="skill">Data Analysis</span>
-      <span class="skill">ETL</span>
+    <!-- Project Detail Pages -->
+    <div id="project-0" class="project-detail">
+        <div class="container">
+            <button class="back-button" onclick="showHome()">← Back to Portfolio</button>
+            <div class="detail-content">
+                <h2>Sales Dashboard Analytics</h2>
+                <p><strong>Project Duration:</strong> January 2024 - March 2024</p>
+                
+                <h3>Overview</h3>
+                <p>This project involved creating a comprehensive sales analytics dashboard for a multi-regional retail company. The dashboard provides real-time insights into sales performance, revenue trends, and regional comparisons.</p>
+                
+                <h3>Key Objectives</h3>
+                <ul>
+                    <li>Track sales performance across 15 different regions</li>
+                    <li>Identify top-performing products and categories</li>
+                    <li>Monitor KPIs including revenue, profit margins, and conversion rates</li>
+                    <li>Enable data-driven decision making for management</li>
+                </ul>
+                
+                <h3>Technical Implementation</h3>
+                <p>The solution was built using Python for data processing and ETL pipelines, with Tableau and Power BI for visualization. SQL databases were optimized for fast query performance, handling over 2 million records daily.</p>
+                
+                <h3>Results</h3>
+                <ul>
+                    <li>Reduced reporting time from 5 hours to 15 minutes</li>
+                    <li>Identified $2M in revenue opportunities through trend analysis</li>
+                    <li>Improved decision-making speed by 40%</li>
+                    <li>Enhanced visibility into underperforming regions</li>
+                </ul>
+                
+                <h3>Technologies Used</h3>
+                <p>Python (Pandas, NumPy), Tableau, Power BI, SQL Server, Microsoft Azure</p>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="fade-in">
-  <h2>📂 Projects</h2>
-  <div class="projects">
-    <a href="https://github.com/dev-sarthakbora/sales-analysis" target="_blank" class="project-card">
-      <h3>Sales Data Analysis</h3>
-      <p>Analyzed company sales data using Python and Excel to find trends and forecast future sales.</p>
-    </a>
+    <div id="project-1" class="project-detail">
+        <div class="container">
+            <button class="back-button" onclick="showHome()">← Back to Portfolio</button>
+            <div class="detail-content">
+                <h2>Customer Churn Prediction</h2>
+                <p><strong>Project Duration:</strong> April 2024 - June 2024</p>
+                
+                <h3>Overview</h3>
+                <p>Developed a machine learning solution to predict customer churn for a subscription-based service with over 500,000 active users. The model helps identify at-risk customers before they cancel their subscriptions.</p>
+                
+                <h3>Key Objectives</h3>
+                <ul>
+                    <li>Build a predictive model with high accuracy and recall</li>
+                    <li>Identify key factors contributing to customer churn</li>
+                    <li>Create actionable insights for retention teams</li>
+                    <li>Implement automated early warning system</li>
+                </ul>
+                
+                <h3>Technical Implementation</h3>
+                <p>Used Python with Scikit-learn and XGBoost for model development. Analyzed customer behavior data including usage patterns, support tickets, billing history, and engagement metrics. Implemented feature engineering to create 40+ predictive variables.</p>
+                
+                <h3>Results</h3>
+                <ul>
+                    <li>Achieved 87% prediction accuracy with 82% recall</li>
+                    <li>Reduced customer churn rate by 23% over 6 months</li>
+                    <li>Saved an estimated $1.8M in annual recurring revenue</li>
+                    <li>Enabled proactive customer retention strategies</li>
+                </ul>
+                
+                <h3>Technologies Used</h3>
+                <p>Python (Pandas, Scikit-learn, XGBoost), Jupyter Notebooks, PostgreSQL, AWS SageMaker</p>
+            </div>
+        </div>
+    </div>
 
-    <a href="https://github.com/dev-sarthakbora/customer-segmentation" target="_blank" class="project-card">
-      <h3>Customer Segmentation</h3>
-      <p>Used clustering techniques in Python to segment customers and improve marketing strategies.</p>
-    </a>
+    <div id="project-2" class="project-detail">
+        <div class="container">
+            <button class="back-button" onclick="showHome()">← Back to Portfolio</button>
+            <div class="detail-content">
+                <h2>Market Basket Analysis</h2>
+                <p><strong>Project Duration:</strong> July 2024 - September 2024</p>
+                
+                <h3>Overview</h3>
+                <p>Conducted an extensive market basket analysis for an e-commerce platform to discover product associations and purchasing patterns. This analysis informed merchandising strategies and personalized recommendation systems.</p>
+                
+                <h3>Key Objectives</h3>
+                <ul>
+                    <li>Identify frequently purchased product combinations</li>
+                    <li>Optimize product placement and cross-selling strategies</li>
+                    <li>Improve recommendation engine accuracy</li>
+                    <li>Increase average order value</li>
+                </ul>
+                
+                <h3>Technical Implementation</h3>
+                <p>Utilized R and the Apriori algorithm to analyze transaction data from over 2 million orders. Created association rules with confidence and lift metrics to identify meaningful product relationships. Integrated findings with existing recommendation systems.</p>
+                
+                <h3>Results</h3>
+                <ul>
+                    <li>Discovered 150+ high-value product associations</li>
+                    <li>Increased average order value by 18%</li>
+                    <li>Improved recommendation click-through rate by 25%</li>
+                    <li>Generated $800K in additional quarterly revenue</li>
+                </ul>
+                
+                <h3>Technologies Used</h3>
+                <p>R (arules, arulesViz), SQL, Excel, Python (for data preprocessing), Google BigQuery</p>
+            </div>
+        </div>
+    </div>
 
-    <a href="https://github.com/dev-sarthakbora/interactive-dashboard" target="_blank" class="project-card">
-      <h3>Interactive Dashboard</h3>
-      <p>Built a Tableau dashboard to visualize key performance indicators for business insights.</p>
-    </a>
-  </div>
-</section>
+    <script>
+        let currentIndex = 0;
+        const slides = document.getElementById('slides');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = 3;
 
+        function changeSlide(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = totalSlides - 1;
+            if (currentIndex >= totalSlides) currentIndex = 0;
+            updateSlider();
+        }
 
-  <!-- Contact Section -->
-  <section id="contact" class="fade-in">
-    <h2>📫 Contact Me</h2>
-    <p>Email: <a href="mailto:sarthakbora@example.com">sarthakbora@example.com</a></p>
-    <p>
-      <a href="https://linkedin.com/in/sarthak-bora" target="_blank">LinkedIn</a> |
-      <a href="https://github.com/dev-sarthakbora" target="_blank">GitHub</a> |
-      <a href="https://kaggle.com/sarthakbora" target="_blank">Kaggle</a>
-    </p>
-  </section>
+        function currentSlide(index) {
+            currentIndex = index;
+            updateSlider();
+        }
 
-  <footer>
-    <p>© 2025 Sarthak Bora. All rights reserved.</p>
-  </footer>
+        function updateSlider() {
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
 
+        function downloadResume() {
+            alert('Resume download would start here!\n\nIn a real implementation, this would trigger a PDF download of your resume.');
+        }
+
+        function showProject(projectId) {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('project-' + projectId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showHome() {
+            document.querySelectorAll('.project-detail').forEach(detail => {
+                detail.classList.remove('active');
+            });
+            document.getElementById('home-page').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        // Auto-advance slider every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
