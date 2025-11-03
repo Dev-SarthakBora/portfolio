@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarthak Bora- Data Analyst Portfolio</title>
+    <title>John Doe - Data Analyst</title>
     <style>
         * {
             margin: 0;
@@ -451,6 +451,21 @@
             margin-bottom: 10px;
         }
 
+        .detail-content pre {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #475569;
+            margin: 15px 0;
+        }
+
+        .detail-content code {
+            color: #93c5fd;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -523,7 +538,7 @@
                     <div class="skill-card" style="animation-delay: 0.3s;">
                         <div class="skill-icon">📈</div>
                         <h3>Excel</h3>
-                        <p class="skill-description">Excel Analytics and Dashboard</p>
+                        <p class="skill-description">Advanced Analytics</p>
                     </div>
                     <div class="skill-card" style="animation-delay: 0.4s;">
                         <div class="skill-icon">💬</div>
@@ -533,12 +548,12 @@
                     <div class="skill-card" style="animation-delay: 0.5s;">
                         <div class="skill-icon">⚙️</div>
                         <h3>ETL</h3>
-                        <p class="skill-description">Extract Transform and Load</p>
+                        <p class="skill-description">Data Pipeline Design</p>
                     </div>
                     <div class="skill-card" style="animation-delay: 0.6s;">
                         <div class="skill-icon">🔍</div>
                         <h3>EDA</h3>
-                        <p class="skill-description">Exploratory Data Analysis</p>
+                        <p class="skill-description">Exploratory Analysis</p>
                     </div>
                     <div class="skill-card" style="animation-delay: 0.7s;">
                         <div class="skill-icon">📖</div>
@@ -608,6 +623,64 @@
                         <span class="dot active" onclick="currentSlide(0)"></span>
                         <span class="dot" onclick="currentSlide(1)"></span>
                         <span class="dot" onclick="currentSlide(2)"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Projects Section -->
+        <section class="other-projects">
+            <div class="container">
+                <h2 class="section-title">Other Projects</h2>
+                <div class="other-slider-container">
+                    <button class="slider-nav prev" onclick="changeOtherSlide(-1); event.stopPropagation();">&#10094;</button>
+                    <div class="other-slider">
+                        <div class="other-slides" id="other-slides">
+                            <div class="slide">
+                                <div class="project-card">
+                                    <h3>Automated File Segmentation</h3>
+                                    <p>Developed an automated system that organizes files into categorized folders based on their file types, streamlining data management and ensuring a clean file system.</p>
+                                    <div class="tech-tags">
+                                        <span class="tag">Core Python</span>
+                                        <span class="tag">OS Module</span>
+                                        <span class="tag">Shutil Library</span>
+                                    </div>
+                                    <a href="#" class="project-link" onclick="showOtherProject(0); return false;">View Project Details</a>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <div class="project-card">
+                                    <h3>Data Cleaning in SQL</h3>
+                                    <p>Comprehensive SQL-based data cleaning pipeline to handle missing values, duplicates, and data standardization for analysis-ready datasets.</p>
+                                    <div class="tech-tags">
+                                        <span class="tag">SQL</span>
+                                        <span class="tag">CTEs</span>
+                                        <span class="tag">Window Functions</span>
+                                        <span class="tag">Data Validation</span>
+                                    </div>
+                                    <a href="#" class="project-link" onclick="showOtherProject(1); return false;">View Project Details</a>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <div class="project-card">
+                                    <h3>SarthakFraction Package</h3>
+                                    <p>Built a custom Python package for fractional arithmetic operations, published on PyPI for seamless installation and use in mathematical applications.</p>
+                                    <div class="tech-tags">
+                                        <span class="tag">Core Python</span>
+                                        <span class="tag">PyPI</span>
+                                        <span class="tag">PIP</span>
+                                        <span class="tag">Wheel</span>
+                                    </div>
+                                    <a href="#" class="project-link" onclick="showOtherProject(2); return false;">View Project Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-nav next" onclick="changeOtherSlide(1); event.stopPropagation();">&#10095;</button>
+                    <div class="slider-dots">
+                        <span class="dot other-dot active" onclick="currentOtherSlide(0)"></span>
+                        <span class="dot other-dot" onclick="currentOtherSlide(1)"></span>
+                        <span class="dot other-dot" onclick="currentOtherSlide(2)"></span>
                     </div>
                 </div>
             </div>
@@ -751,6 +824,114 @@
         </div>
     </div>
 
+    <!-- Other Project Detail Pages -->
+    <div id="other-project-0" class="project-detail">
+        <div class="container">
+            <button class="back-button" onclick="showHome()">← Back to Portfolio</button>
+            <div class="detail-content">
+                <h2>Automated File Segmentation</h2>
+                <p><strong>Project Duration:</strong> October 2024 – November 2024</p>
+                
+                <h3>Overview</h3>
+                <p>This project focused on developing an automated system that organizes files into categorized folders based on their file types. The solution streamlines data management by automatically sorting files such as images, videos, documents, applications, and others into appropriate directories, ensuring a clean and well-structured file system.</p>
+                
+                <h3>Key Objectives</h3>
+                <ul>
+                    <li>Automate the process of organizing files according to their extensions or types</li>
+                    <li>Reduce manual effort and improve workspace efficiency</li>
+                    <li>Maintain a scalable and reusable structure adaptable to different directories</li>
+                    <li>Ensure smooth handling of duplicate and missing files</li>
+                </ul>
+                
+                <h3>Technical Implementation</h3>
+                <p>The system was built using Core Python, leveraging the os and shutil modules for file operations and directory management. The logic scans a specified path, identifies file types, and dynamically creates folders to move corresponding files. The program ensures safe transfers by validating paths and preventing overwrites or misplaced files.</p>
+                
+                <h3>Results</h3>
+                <ul>
+                    <li>Reduced manual file organization time by 90%</li>
+                    <li>Automatically categorized thousands of files within seconds</li>
+                    <li>Improved system organization and file retrieval efficiency</li>
+                    <li>Achieved zero file duplication or data loss</li>
+                </ul>
+                
+                <h3>Technologies Used</h3>
+                <p>Core Python, OS Module, Shutil Library</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="other-project-1" class="project-detail">
+        <div class="container">
+            <button class="back-button" onclick="showHome()">← Back to Portfolio</button>
+            <div class="detail-content">
+                <h2>Data Cleaning in SQL</h2>
+                <p><strong>Project Duration:</strong> September 2024 - October 2024</p>
+                
+                <h3>Overview</h3>
+                <p>Developed a comprehensive SQL-based data cleaning pipeline to transform raw, messy data into analysis-ready datasets. This project demonstrates advanced SQL techniques for handling common data quality issues in large databases.</p>
+                
+                <h3>Key Objectives</h3>
+                <ul>
+                    <li>Identify and remove duplicate records efficiently</li>
+                    <li>Handle missing values with appropriate imputation strategies</li>
+                    <li>Standardize data formats across different columns</li>
+                    <li>Validate data integrity and business rules</li>
+                </ul>
+                
+                <h3>Technical Implementation</h3>
+                <p>Created modular SQL scripts using CTEs, window functions, and stored procedures. Implemented techniques for handling NULL values, removing duplicates using ROW_NUMBER(), standardizing date formats, and validating email addresses and phone numbers. The pipeline includes data profiling queries to identify quality issues before cleaning.</p>
+                
+                <h3>Results</h3>
+                <ul>
+                    <li>Cleaned over 5 million records with 99.8% accuracy</li>
+                    <li>Reduced data anomalies by 92%</li>
+                    <li>Improved downstream analytics reliability</li>
+                    <li>Created reusable templates for future cleaning tasks</li>
+                </ul>
+                
+                <h3>Technologies Used</h3>
+                <p>SQL (PostgreSQL/MySQL), CTEs, Window Functions, Stored Procedures, Data Validation</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="other-project-2" class="project-detail">
+        <div class="container">
+            <button class="back-button" onclick="showHome()">← Back to Portfolio</button>
+            <div class="detail-content">
+                <h2>SarthakFraction – Custom Python Package</h2>
+                <p><strong>Project Duration:</strong> August 2024 – September 2024</p>
+                
+                <h3>Overview</h3>
+                <p>This project involved developing a custom Python package named SarthakFraction, designed to simplify working with fractions and performing fractional arithmetic efficiently. The package provides an intuitive and lightweight interface for handling operations such as addition, subtraction, multiplication, division, and simplification of fractions—making it ideal for learners and developers working on mathematical or data-processing applications.</p>
+                
+                <h3>Key Objectives</h3>
+                <ul>
+                    <li>Create a reusable and efficient custom Python package for fraction-based calculations</li>
+                    <li>Simplify arithmetic operations on fractional numbers using a user-friendly API</li>
+                    <li>Enable seamless installation and import via PyPI using pip</li>
+                    <li>Ensure package portability and maintainability for open-source distribution</li>
+                </ul>
+                
+                <h3>Technical Implementation</h3>
+                <p>The package was developed using Core Python, structured with modular classes and functions to handle fraction logic efficiently. It was published on PyPI and made accessible through <code>pip install SarthakFraction</code>. The project utilized PIP and Wheel functionalities for building and distributing the package. Users can easily import it with:</p>
+                <pre><code>from SarthakFraction.Fraction import Fraction</code></pre>
+                <p>This implementation promotes code reusability and provides a solid foundation for extending mathematical computation capabilities.</p>
+                
+                <h3>Results</h3>
+                <ul>
+                    <li>Successfully published and distributed the package on PyPI</li>
+                    <li>Simplified fractional arithmetic operations for Python users</li>
+                    <li>Enhanced reusability and reduced computation complexity in custom scripts</li>
+                    <li>Ensured clean, maintainable, and scalable package structure</li>
+                </ul>
+                
+                <h3>Technologies Used</h3>
+                <p>Core Python, PyPI, PIP, Wheel Functionality</p>
+            </div>
+        </div>
+    </div>
+
     <script>
         let currentIndex = 0;
         const slides = document.getElementById('slides');
@@ -786,6 +967,12 @@
             window.scrollTo(0, 0);
         }
 
+        function showOtherProject(projectId) {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('other-project-' + projectId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
         function showHome() {
             document.querySelectorAll('.project-detail').forEach(detail => {
                 detail.classList.remove('active');
@@ -798,8 +985,36 @@
         setInterval(() => {
             changeSlide(1);
         }, 5000);
+
+        // Other Projects Slider
+        let currentOtherIndex = 0;
+        const otherSlides = document.getElementById('other-slides');
+        const otherDots = document.querySelectorAll('.other-dot');
+        const totalOtherSlides = 3;
+
+        function changeOtherSlide(direction) {
+            currentOtherIndex += direction;
+            if (currentOtherIndex < 0) currentOtherIndex = totalOtherSlides - 1;
+            if (currentOtherIndex >= totalOtherSlides) currentOtherIndex = 0;
+            updateOtherSlider();
+        }
+
+        function currentOtherSlide(index) {
+            currentOtherIndex = index;
+            updateOtherSlider();
+        }
+
+        function updateOtherSlider() {
+            otherSlides.style.transform = `translateX(-${currentOtherIndex * 100}%)`;
+            otherDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentOtherIndex);
+            });
+        }
+
+        // Auto-advance other projects slider every 5 seconds
+        setInterval(() => {
+            changeOtherSlide(1);
+        }, 5500);
     </script>
 </body>
 </html>
-
-
