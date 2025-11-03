@@ -632,55 +632,38 @@
         <section class="other-projects">
             <div class="container">
                 <h2 class="section-title">Other Projects</h2>
-                <div class="other-slider-container">
-                    <button class="slider-nav prev" onclick="changeOtherSlide(-1); event.stopPropagation();">&#10094;</button>
-                    <div class="other-slider">
-                        <div class="other-slides" id="other-slides">
-                            <div class="slide">
-                                <div class="project-card">
-                                    <h3>Automated File Segmentation</h3>
-                                    <p>Developed an automated system that organizes files into categorized folders based on their file types, streamlining data management and ensuring a clean file system.</p>
-                                    <div class="tech-tags">
-                                        <span class="tag">Core Python</span>
-                                        <span class="tag">OS Module</span>
-                                        <span class="tag">Shutil Library</span>
-                                    </div>
-                                    <a href="#" class="project-link" onclick="showOtherProject(0); return false;">View Project Details</a>
-                                </div>
-                            </div>
-                            <div class="slide">
-                                <div class="project-card">
-                                    <h3>Data Cleaning in SQL</h3>
-                                    <p>Comprehensive SQL-based data cleaning pipeline to handle missing values, duplicates, and data standardization for analysis-ready datasets.</p>
-                                    <div class="tech-tags">
-                                        <span class="tag">SQL</span>
-                                        <span class="tag">CTEs</span>
-                                        <span class="tag">Window Functions</span>
-                                        <span class="tag">Data Validation</span>
-                                    </div>
-                                    <a href="#" class="project-link" onclick="showOtherProject(1); return false;">View Project Details</a>
-                                </div>
-                            </div>
-                            <div class="slide">
-                                <div class="project-card">
-                                    <h3>SarthakFraction Package</h3>
-                                    <p>Built a custom Python package for fractional arithmetic operations, published on PyPI for seamless installation and use in mathematical applications.</p>
-                                    <div class="tech-tags">
-                                        <span class="tag">Core Python</span>
-                                        <span class="tag">PyPI</span>
-                                        <span class="tag">PIP</span>
-                                        <span class="tag">Wheel</span>
-                                    </div>
-                                    <a href="#" class="project-link" onclick="showOtherProject(2); return false;">View Project Details</a>
-                                </div>
-                            </div>
+                <div class="other-projects-grid">
+                    <div class="other-project-card" onclick="showOtherProject(0)">
+                        <h3>Automated File Segmentation</h3>
+                        <p>Automated system that organizes files into categorized folders based on file types, streamlining data management.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Core Python</span>
+                            <span class="tag">OS Module</span>
+                            <span class="tag">Shutil</span>
                         </div>
+                        <div class="view-more">View Details →</div>
                     </div>
-                    <button class="slider-nav next" onclick="changeOtherSlide(1); event.stopPropagation();">&#10095;</button>
-                    <div class="slider-dots">
-                        <span class="dot other-dot active" onclick="currentOtherSlide(0)"></span>
-                        <span class="dot other-dot" onclick="currentOtherSlide(1)"></span>
-                        <span class="dot other-dot" onclick="currentOtherSlide(2)"></span>
+                    
+                    <div class="other-project-card" onclick="showOtherProject(1)">
+                        <h3>Data Cleaning in SQL</h3>
+                        <p>SQL-based data cleaning pipeline to handle missing values, duplicates, and data standardization.</p>
+                        <div class="tech-tags">
+                            <span class="tag">SQL</span>
+                            <span class="tag">CTEs</span>
+                            <span class="tag">Window Functions</span>
+                        </div>
+                        <div class="view-more">View Details →</div>
+                    </div>
+                    
+                    <div class="other-project-card" onclick="showOtherProject(2)">
+                        <h3>SarthakFraction Package</h3>
+                        <p>Custom Python package for fractional arithmetic operations, published on PyPI for seamless use.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Core Python</span>
+                            <span class="tag">PyPI</span>
+                            <span class="tag">PIP</span>
+                        </div>
+                        <div class="view-more">View Details →</div>
                     </div>
                 </div>
             </div>
@@ -985,36 +968,6 @@
         setInterval(() => {
             changeSlide(1);
         }, 5000);
-
-        // Other Projects Slider
-        let currentOtherIndex = 0;
-        const otherSlides = document.getElementById('other-slides');
-        const otherDots = document.querySelectorAll('.other-dot');
-        const totalOtherSlides = 3;
-
-        function changeOtherSlide(direction) {
-            currentOtherIndex += direction;
-            if (currentOtherIndex < 0) currentOtherIndex = totalOtherSlides - 1;
-            if (currentOtherIndex >= totalOtherSlides) currentOtherIndex = 0;
-            updateOtherSlider();
-        }
-
-        function currentOtherSlide(index) {
-            currentOtherIndex = index;
-            updateOtherSlider();
-        }
-
-        function updateOtherSlider() {
-            otherSlides.style.transform = `translateX(-${currentOtherIndex * 100}%)`;
-            otherDots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentOtherIndex);
-            });
-        }
-
-        // Auto-advance other projects slider every 5 seconds
-        setInterval(() => {
-            changeOtherSlide(1);
-        }, 5500);
     </script>
 </body>
 </html>
